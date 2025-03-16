@@ -3,6 +3,9 @@ package com.example.cvbuilder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,10 @@ public class SplashActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
 
+        ImageView cv = findViewById(R.id.cv);
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        cv.startAnimation(fadeIn);
+
         Intent iHome = new Intent(SplashActivity.this, MainActivity.class);
 
         new Handler().postDelayed(new Runnable() {
@@ -25,6 +32,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
 
                 startActivity(iHome);
+                finish();
             }
         }, 3000);
     }
