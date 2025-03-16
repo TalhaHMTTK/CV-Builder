@@ -1,19 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Profile Picture"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:id="@+id/profile"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Personel Details"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:id="@+id/personel"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Summary"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:id="@+id/summary"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Education"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:id="@+id/education"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Experience"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:id="@+id/experience"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Certifications"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:id="@+id/certifications"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="References"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:id="@+id/references"
+        />
+
+</LinearLayout>
