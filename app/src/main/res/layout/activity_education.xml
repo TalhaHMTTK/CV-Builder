@@ -7,6 +7,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@android:color/white"
     tools:context=".EducationActivity">
 
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Education"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="10dp" />
+
+    <EditText
+        android:id="@+id/education"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="University Name"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:background="@android:drawable/edit_text"
+        android:minHeight="40dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/saveEducation"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/cancelEducation"/>
 </LinearLayout>

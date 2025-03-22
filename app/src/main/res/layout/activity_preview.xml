@@ -1,19 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".PreviewActivity">
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Preview Your Information"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="10dp" />
+
+        <!-- Personal Information Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFCDD2"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal Information"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/personalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:paddingTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Certifications Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C8E6C9"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Certifications"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/certificationInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:paddingTop="4dp"/>
+        </LinearLayout>
+
+        <!-- References Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BBDEFB"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="References"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/referenceInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:paddingTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Education Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BBFBBD"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Education"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:paddingTop="4dp"
+                android:id="@+id/educationInfo"/>
+        </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/imageViewPreview"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        <!-- Experience Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BBFAFB"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:radius="12dp"
+            android:elevation="4dp">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Experience"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:paddingTop="4dp"
+                android:id="@+id/experienceInfo"/>
+        </LinearLayout>
+
+
+
+        <!-- Summary Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ECBBFB"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Summary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:paddingTop="4dp"
+                android:id="@+id/summaryInfo"/>
+        </LinearLayout>
+        <!-- Close Button -->
+        <Button
+            android:id="@+id/closePreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:backgroundTint="#FF9800"
+            android:textColor="@android:color/white"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</ScrollView>

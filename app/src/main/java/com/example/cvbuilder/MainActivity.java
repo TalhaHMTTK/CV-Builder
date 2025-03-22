@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    private ImageView imageView;
+    private ImageView profileImageView;
 
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "AppPrefs";
@@ -36,32 +36,12 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         btnProfile = findViewById(R.id.profile);
+        profileImageView = findViewById(R.id.mainPic);
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent iProfile = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivityForResult(iProfile, PICK_IMAGE_REQUEST);
-            }
-        });
-
-        Button btnPreview;
-        btnPreview = findViewById(R.id.btnPreview);
-        // Open PreviewActivity with saved image URI
-        btnPreview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                String savedImageUri = sharedPreferences.getString("selectedImageUri", null);
-
-                Log.d("MainActivity", "Saved Image URI: " + savedImageUri);
-
-                if (savedImageUri != null && !savedImageUri.isEmpty()) {
-                    Intent intent = new Intent(MainActivity.this, PreviewActivity.class);
-                    intent.putExtra("imageUri", savedImageUri);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(MainActivity.this, "No image selected!", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
@@ -140,6 +120,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        Button btnPreview;
+
+        btnPreview = findViewById(R.id.btnPreview);
+        btnPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iPreview = new Intent(MainActivity.this, PreviewActivity.class);
+                startActivity(iPreview);
+            }
+        });
+
     }
 
     // code of profile pic save
@@ -151,11 +143,7 @@ public class MainActivity extends AppCompatActivity {
             if (data != null && data.getStringExtra("selectedImageUri") != null) {
                 Uri selectedImageUri = Uri.parse(data.getStringExtra("selectedImageUri"));
 
-                // Store URI in SharedPreferences
-                SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("selectedImageUri", selectedImageUri.toString());
-                editor.apply();  // Save changes asynchronously
+                profileImageView.setImageURI(selectedImageUri);
 
                 Toast.makeText(this, "Image URI saved successfully!", Toast.LENGTH_SHORT).show();
             } else {

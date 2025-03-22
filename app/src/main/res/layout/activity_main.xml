@@ -11,6 +11,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:id="@+id/mainPic"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,5 +93,6 @@
         android:backgroundTint="@color/red"
         android:id="@+id/btnPreview"
         />
+
 
 </LinearLayout>
