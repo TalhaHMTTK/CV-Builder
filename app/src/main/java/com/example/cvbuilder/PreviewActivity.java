@@ -1,5 +1,6 @@
 package com.example.cvbuilder;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ public class PreviewActivity extends AppCompatActivity {
     private static final String PREFS_NAME = "AppPrefs";
 
     private TextView personalInfo, certificationInfo, referenceInfo, summaryInfo, educationInfo, experienceInfo;
-    private Button closeButton;
+    private Button closeButton, shareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +27,16 @@ public class PreviewActivity extends AppCompatActivity {
         experienceInfo = findViewById(R.id.experienceInfo);
         summaryInfo = findViewById(R.id.summaryInfo);
         closeButton = findViewById(R.id.closePreview);
-        educationInfo = findViewById(R.id.educationInfo);
+        shareButton = findViewById(R.id.sharePreview); // New Share Button
 
         // Load and display stored data
         displayStoredData();
 
         // Close button action
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish(); // Close the preview screen
-            }
-        });
+        closeButton.setOnClickListener(v -> finish()); // Close the preview screen
+
+        // Share button action
+        shareButton.setOnClickListener(v -> sharePreview());
     }
 
     private void displayStoredData() {
@@ -61,5 +60,26 @@ public class PreviewActivity extends AppCompatActivity {
         summaryInfo.setText("Summary\n• " + summary);
         experienceInfo.setText("Experience\n• " + "Company Name: " + experienceCompany + "\n• Start Date: " + experienceStart + "\n• End Date: " + experienceEnd );
         educationInfo.setText("Education\n• " + education);
+    }
+
+    private void sharePreview() {
+        String previewText = "📄 CV Preview\n\n" +
+                "👤 Personal Information\n" +
+                "• Name: " + personalInfo.getText().toString().replace("👤 Personal Information\n", "") + "\n\n" +
+                "📜 Certification\n" +
+                "• " + certificationInfo.getText().toString().replace("📜 Certification\n", "") + "\n\n" +
+                "📌 Reference\n" +
+                "• " + referenceInfo.getText().toString().replace("📌 Reference\n", "") + "\n\n" +
+                "📘 Education\n" +
+                "• " + educationInfo.getText().toString().replace("Education\n• ", "") + "\n\n" +
+                "💼 Experience\n" +
+                "• " + experienceInfo.getText().toString().replace("Experience\n• ", "") + "\n\n" +
+                "📝 Summary\n" +
+                "• " + summaryInfo.getText().toString().replace("Summary\n• ", "");
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, previewText);
+        startActivity(Intent.createChooser(shareIntent, "Share CV via"));
     }
 }
